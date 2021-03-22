@@ -1,4 +1,4 @@
-name: Scheduled Updates
+name: Scheduled Daily SASS Version Update
 
 on:
   schedule:
