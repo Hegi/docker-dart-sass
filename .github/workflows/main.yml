@@ -26,7 +26,7 @@ jobs:
         with:
           push: true
           tags: hegistvan/dart-sass:latest
-      - 
+      -
         name: push README to Dockerhub
         uses: christian-korneck/update-container-description-action@v1
         env:
@@ -36,7 +36,7 @@ jobs:
           destination_container_repo: hegistvan/dart-sass
           provider: dockerhub
           short_description: 'my short description'
-          readme_file: 'README.md'
+          readme_file: '/github/workspace/README.md'
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

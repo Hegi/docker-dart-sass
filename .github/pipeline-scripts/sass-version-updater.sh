@@ -14,5 +14,3 @@ if [ -n "$(git --no-pager diff HEAD -- Dockerfile)" ]; then
     git tag -f -m "Dart SASS version update to '${VERSION}'" -a "v${VERSION}" $(git rev-parse --short HEAD)
     git push origin --follow-tags
 fi
-
-ls -la
