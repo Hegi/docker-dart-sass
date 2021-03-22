@@ -1,0 +1,16 @@
+name: Scheduled Updates
+
+on:
+  schedule:
+    - cron:  '24 14 */1 * *'
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout source code
+        uses: actions/checkout@v2
+        shell: bash
+        run: "$(pwd)"/.github/pipeline-scripts/sass-version-updater.sh

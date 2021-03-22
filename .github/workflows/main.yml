@@ -1,4 +1,4 @@
-name: CI
+name: Build and Depploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  login:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       -
@@ -20,15 +20,19 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and not push
+        name: Build and Push
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v2.3.0
         with:
           push: true
-          tags: hegistvan/dart-sass-container:latest
+          tags: hegistvan/dart-sass:latest
       -
-        name: Build and push Docker images
-        uses: docker/build-push-action@v2.3.0
+        name: Update description at Docker Hub
+        uses: peter-evans/dockerhub-description@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: hegistvan/dart-sass
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

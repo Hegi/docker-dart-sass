@@ -1,4 +1,5 @@
 #!/bin/bash
+{ set -euo pipefail; } 2>/dev/null
 
 VERSION=$(curl  -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/sass/dart-sass/releases/latest | jq -r ".tag_name" | sed -s 's/^v//')
 
