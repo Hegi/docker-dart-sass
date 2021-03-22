@@ -12,5 +12,7 @@ jobs:
       -
         name: Checkout source code
         uses: actions/checkout@v2
+      -
+        name: Detect newer dart-sass version
         shell: bash
         run: .github/pipeline-scripts/sass-version-updater.sh
