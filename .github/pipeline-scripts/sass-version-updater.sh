@@ -12,5 +12,5 @@ if [ -n "$(git --no-pager diff HEAD -- Dockerfile)" ]; then
     git add Dockerfile
     git commit -m "Dart SASS version update to '${VERSION}'"
     git tag -f -m "Dart SASS version update to '${VERSION}'" -a "v${VERSION}" $(git rev-parse --short HEAD)
-    echo "# git push origin --follow-tags"
+    git push origin --follow-tags
 fi
