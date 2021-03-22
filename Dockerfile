@@ -6,7 +6,6 @@ ADD https://github.com/sass/dart-sass/releases/download/${UPSTREAM_VERSION}/dart
 RUN tar -C /opt/ -xzvf /opt/dart-sass-${UPSTREAM_VERSION}-linux-x64.tar.gz
 
 FROM alpine:latest as final
-ARG BRANCH
 ARG COMMIT
 ARG DATE
 ARG URL
