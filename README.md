@@ -22,4 +22,3 @@ Command run by the image:
 ```
 /opt/dart-sass/sass --watch /sass:/css
 ```
-
