@@ -1,5 +1,6 @@
 #!/bin/bash
 
+exit
 RELEASE=$(curl  -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/sass/dart-sass/releases/latest)
 VERSION=$(echo $RELEASE | jq -r ".tag_name" | sed -s 's/^v//')
 

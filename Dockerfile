@@ -12,20 +12,17 @@ ARG DATE
 ARG URL
 ARG VERSION
 
-MAINTAINER michal.klempa@gmail.com
-
-LABEL org.label-schema.schema-version="1.0" \
-    org.label-schema.build-date=$DATE \
-    org.label-schema.vendor="Michal Klempa" \
-    org.label-schema.name="michalklempa/dart-sass" \
-    org.label-schema.description="sass/dart-sass docker image for web development purposes. Runs sass --watch on provided volumes." \
-    org.label-schema.url="https://hub.docker.com/r/michalklempa/dart-sass" \
-    org.label-schema.docker.cmd="docker run -v $PWD/sass:/sass/ -v $PWD/css:/css/ --init -it michalklempa/dart-sass:latest" \
-    org.label-schema.version="$VERSION" \
-    org.label-schema.vcs-url=$URL \
-    org.label-schema.vcs-branch=$BRANCH \
-    org.label-schema.vcs-ref=$COMMIT
-
+LABEL maintainer="istvan@hegistvan.com" \
+    org.opencontainers.image.created=$DATE \
+    org.opencontainers.image.authors="Hegi; Michal Klempa" \
+    org.opencontainers.image.url="https://hub.docker.com/r/hegistvan/dart-sass" \
+    org.opencontainers.image.source=$URL \
+    org.opencontainers.image.version="$VERSION" \
+    org.opencontainers.image.revision=$COMMIT \
+    org.opencontainers.image.vendor="Hegi" \
+    org.opencontainers.image.licenses="LGPL-2.1" \
+    org.opencontainers.image.title="hegistvan/dart-sass" \
+    org.opencontainers.image.description="sass/dart-sass docker image for web development purposes. Runs sass --watch on provided volumes."
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
