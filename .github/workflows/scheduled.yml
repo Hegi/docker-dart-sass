@@ -13,4 +13,4 @@ jobs:
         name: Checkout source code
         uses: actions/checkout@v2
         shell: bash
-        run: "$(pwd)"/.github/pipeline-scripts/sass-version-updater.sh
+        run: .github/pipeline-scripts/sass-version-updater.sh
