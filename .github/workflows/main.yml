@@ -26,13 +26,17 @@ jobs:
         with:
           push: true
           tags: hegistvan/dart-sass:latest
-      -
-        name: Update description at Docker Hub
-        uses: peter-evans/dockerhub-description@v2
+      - 
+        name: push README to Dockerhub
+        uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASS: ${{ secrets.DOCKERHUB_TOKEN }}
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: hegistvan/dart-sass
+          destination_container_repo: hegistvan/dart-sass
+          provider: dockerhub
+          short_description: 'my short description'
+          readme_file: 'README.md'
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
